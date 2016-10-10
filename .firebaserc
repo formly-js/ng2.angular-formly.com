@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "ng2-angular-formly-com",
+    "staging": "ng2-angular-formly-com"
+  }
+}

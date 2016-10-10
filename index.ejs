@@ -1,0 +1,59 @@
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <%- partial("node_modules/microsite-ui/_partials/nav", {
+      name: 'Formly',
+      logoWithText: 'node_modules/microsite-ui/images/angular-logo-with-text.svg',
+      CTA: {
+        text: 'Preview on GitHub',
+        url: 'https://github.com/formly-js/ng2-formly'
+      },
+      pages: [{
+        text: 'Guides',
+        href: '/guides/'
+      }],
+      homeHref: '/'
+    }) %>
+
+    <main class="mdl-layout__content">
+      <header class="hero-background">
+
+          <!-- Hero -->
+          <%- partial("node_modules/microsite-ui/_partials/hero", {
+            name: 'Angular Formly',
+            logo: {
+              src: 'images/angular-formly-logo.png',
+              alt: 'Angular Formly'
+            },
+            tagline: 'JavaScript/JSON powered FORMS for ANGULAR 2',
+            CTA: {
+              text: 'Preview on GitHub',
+              href: 'https://github.com/formly-js/ng2-formly'
+            }
+          }) %>
+
+      </header>
+
+      <!-- Add as many features as needed -->
+      <%- partial("node_modules/microsite-ui/_partials/features", {
+        features: [{
+          name: 'What is Formly',
+          text: 'ng2-formly is an Angular 2 module which has a Components to help customize and render JavaScript/JSON configured forms. The `formly-form` Component and the `FormlyConfig` service are very powerful and bring unmatched maintainability to your applications forms.'
+        }, {
+          name: 'Simpler than cake',
+          text: 'Do it yourself templates through `formlyConfig` service, and fully customizable for when you need to stay on-brand or just have extra field type.'
+        }, {
+          name: 'One developer, many frameworks',
+          text: 'A single Web development team is now a cross-framework application powerhouse. Focus more energy on building better experiences, and less energy on making experiences consistent across development teams and frameworks.'
+        }],
+        CTA: {
+          text: 'Get Started',
+          url: 'https://github.com/formly-js/ng2-formly'
+        }
+      }) %>
+
+      <%- partial("node_modules/microsite-ui/_partials/footer", {
+        footerImg: 'node_modules/microsite-ui/images/angular-logo.svg'
+      }) %>
+    </main>
+  </div>

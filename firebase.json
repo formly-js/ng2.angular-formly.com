@@ -1,0 +1,8 @@
+{
+  "firebase": "ng2-angular-formly-com",
+  "public": "www",
+  "ignore": [
+    "firebase.json",
+    "**/.*"
+  ]
+}
