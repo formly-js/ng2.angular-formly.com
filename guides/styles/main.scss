@@ -14,14 +14,6 @@ body {
 
 // HERO
 .hero-background {
-  @media (max-width: 800px) {
-    left: 0;
-    position: fixed;
-    right: 0;
-    top:0;
-    z-index: 2;
-  }
-
   h4 {
     font-weight: 300;
     margin: 40px 0;
@@ -53,7 +45,7 @@ body {
   margin-bottom: $markdown-margin;
 
   @media(max-width: 1024px) {
-    margin-top:   $markdown-margin-mobile;
+    //margin-top:   $markdown-margin-mobile;
     padding-left: $body-padding-mobile;
     padding-right: $body-padding-mobile;
   }
