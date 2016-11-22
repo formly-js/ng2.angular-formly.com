@@ -71,6 +71,11 @@ var isSectionEntrySelected = function(entries, flag) {
 }) %>
 
 <div class="mdl-layout__drawer">
+    <header class="sidenav-search st-input-wrapper">
+        <div class="st-input-inner">
+            <input type="text" placeholder="SEARCH GUIDES..." class="st-default-search-input" autocomplete="off" autocorrect="off" autocapitalize="off">
+        </div>
+    </header>
     <% for(var j = 0; j < arrayDocs.length; j++) {
         if (arrayDocs[j].length !== 0) {
         %>

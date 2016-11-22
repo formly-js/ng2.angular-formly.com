@@ -29,6 +29,20 @@
         e.target.nextElementSibling.classList.add('selected');
     });
   });
+  document.querySelector('.st-default-search-input').addEventListener('keyup', function(e) {
+    document.querySelectorAll('.mdl-layout__drawer .mdl-layout-title').forEach(function(element) {
+      element.classList.add('selected')
+      element.nextElementSibling.classList.add('selected');
+    });
+    document.querySelectorAll('.mdl-layout__drawer .mdl-navigation__link').forEach(function(element) {
+      var index = element.innerText.trim().toLowerCase().indexOf(e.target.value.toLowerCase());
+      if(index !== -1){
+        element.style.display = ''
+      } else {
+        element.style.display = 'none'
+      }
+    })
+  });
 </script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

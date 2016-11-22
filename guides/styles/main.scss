@@ -154,3 +154,17 @@ $selected-background: #E0E0E0;
     color: $primary-color !important;
   }
 }
+
+.sidenav-search {
+    background: orange;
+    height: 50px;
+    input {
+      margin-top: 10px;
+      margin-left: 15px;
+      border-radius: 20px;
+      border: none;
+      height: 30px;
+      padding-left: 10px;
+      width: 83%;
+    }
+}
