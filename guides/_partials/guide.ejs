@@ -1,0 +1,111 @@
+<%
+// docs :: [String]
+var docs = public.guides.docs && public.guides.docs._contents || []
+var fieldOptions = public.guides.fieldOptions && public.guides.fieldOptions._contents || []
+var formOptions = public.guides.formOptions && public.guides.formOptions._contents || []
+var bootstrapFormly = public.guides.bootstrapFormly && public.guides.bootstrapFormly._contents || []
+var customTypes = public.guides.customTypes && public.guides.customTypes._contents || []
+var integrations = public.guides.integrations && public.guides.integrations._contents || []
+var bootstrapSpecific = public.guides.bootstrapSpecific && public.guides.bootstrapSpecific._contents || []
+var other = public.guides.other && public.guides.other._contents || []
+var advanced = public.guides.advanced && public.guides.advanced._contents || []
+var veryAdvanced = public.guides.veryAdvanced && public.guides.veryAdvanced._contents || []
+
+var arrayDocs = [docs, fieldOptions, formOptions, bootstrapFormly, customTypes, integrations, bootstrapSpecific, other, advanced, veryAdvanced]
+var arrayTitles = ['Intro', 'Field Options', 'Form Options', 'Bootstrap Formly', 'Custom Types', 'Integrations', 'Bootstrap Specific', 'Other', 'Advanced', 'Very Advanced']
+// replaceAll :: String -> String -> String -> String
+var replaceAll = function(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+
+// cleanSideNavEntry :: String -> String
+var cleanSideNavEntry = function(str) {
+    var removeNumber = str.slice(1);
+    var removeExt = removeNumber.replace('.html', ' ');
+    var replaceDashes = replaceAll(removeExt, '-', ' ');
+    var entry = replaceDashes.trim();
+
+    return entry;
+}
+
+// generateUrlFromFilename :: String -> String
+var generateUrlFromFilename = function(str) {
+    return str.slice(1).replace('-', '');
+}
+
+// isSideNavEntrySelected :: String -> Number -> String
+// Globals: `current`
+var isSideNavEntrySelected = function(entry, i, flag) {
+    var currentEntry = current.path[current.path.length - 1];
+    var entryNoExt = entry.replace('.html', '');
+    var entryNoNumber = entryNoExt.slice(2);
+
+    var isIndex = ((currentEntry === 'index') && flag && (i === 0)); // case where no doc was selected, then select first entry
+    var isSelected = (currentEntry === entryNoNumber) || isIndex;
+
+    return isSelected ? 'selected' : '';
+}
+
+var isSectionEntrySelected = function(entries, flag) {
+    var isSelected = false;
+    entries.forEach(function(entry, index) {
+        if (isSideNavEntrySelected(entry, index, flag) === 'selected') {
+            isSelected = true;
+        }
+    });
+    return isSelected ? 'selected': ''
+}
+%>
+
+<%- partial("../../node_modules/microsite-ui/_partials/nav", {
+    logoWithText: '../../node_modules/microsite-ui/images/angular-logo-with-text.svg',
+    CTA: {
+        text: 'Get Started',
+        url: ''
+    },
+    pages: [{
+        text: 'Guides',
+        href: '/guides/'
+    }],
+    homeHref: '/'
+}) %>
+
+<div class="mdl-layout__drawer">
+    <% for(var j = 0; j < arrayDocs.length; j++) {
+        if (arrayDocs[j].length !== 0) {
+        %>
+        <span class="mdl-layout-title <%- isSectionEntrySelected(arrayDocs[j], j === 0)%>"> <%- arrayTitles[j] %>
+            <i class="material-icons">keyboard_arrow_down</i>
+        </span>
+
+        <nav class="mdl-navigation <%- isSectionEntrySelected(arrayDocs[j], j === 0)%>">
+            <% for(var i = 0; i < arrayDocs[j].length; i++) {%>
+            <a class="mdl-navigation__link <%- isSideNavEntrySelected(arrayDocs[j][i], i, j === 0)%>"
+                href=" <%- generateUrlFromFilename(arrayDocs[j][i]) %>">
+                <%- cleanSideNavEntry(arrayDocs[j][i]) %>
+            </a>
+            <% } %>
+        </nav>
+    <%  }
+    } %>
+  </div>
+
+  <main class="mdl-layout__content">
+    <header class="hero-background">
+        <section class="section mdl-grid mdl-grid--no-spacing">
+            <div class="mdl-cell">
+                <h4 class="mt1 page-title"><%- title %></h4>
+            </div>
+        </section>
+    </header>
+
+    <div class="page-content markdown-doc">
+        <%- partial(selectedGuide) %>
+    </div>
+
+
+    <%- partial("../../node_modules/microsite-ui/_partials/footer", {
+        footerImg: '../../node_modules/microsite-ui/images/angular-logo.svg'
+    }) %>
+  </main>
+</div>

@@ -27,6 +27,8 @@ body {
   }
 }
 
+
+
 // MARKDOWN CONTENT
 .markdown-doc {
   $markdown-padding: 200px;
@@ -113,22 +115,42 @@ $selected-background: #E0E0E0;
 .mdl-layout__drawer {
   & >.mdl-layout-title {
     background-color: $darwer-title-background;
+    font-size: 14px;
     font-weight: 500;
     opacity: $font-opacity;
     text-transform: uppercase;
+    cursor: pointer;
+    line-height: 46px;
+    padding-left: 20px;
+    &.selected {
+      box-shadow: 0 2px 2px rgba(0,0,0,0.24);
+    }
+    .material-icons {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
   }
 
   & .mdl-navigation {
     padding-top: 0;
+    &:not(.selected) {
+      display: none;
+    }
   }
 
   & .mdl-navigation__link {
     font-size: 14px;
+    text-transform: capitalize;
   }
 }
 
 .selected {
-  background-color: $selected-background;
-  color: $primary-color !important;
+  background: none;
+  color: #424242 !important;
   font-weight: 600;
+  &.mdl-navigation__link {
+    background-color: $selected-background;
+    color: $primary-color !important;
+  }
 }
