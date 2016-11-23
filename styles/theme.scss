@@ -33,7 +33,11 @@ $neutral-black: unquote("rgb(#{$color-black})"); // This is a nutral color (blac
     padding-right: 0;
   }
 }
-
+.hero-background {
+  background: url(https://angular.io/resources/images/backgrounds/super-hero-large.png) no-repeat bottom center, linear-gradient(rgb(123,31,162),rgb(156,39,176));
+  background-blend-mode: multiply;
+  background-size: 150%;
+}
 .hero-container {
   padding-bottom: 0 !important;
 
