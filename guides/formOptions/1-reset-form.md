@@ -1,1 +1,1 @@
-<iframe width="100%" height="1000px" src="https://embed.plnkr.co/FCTlq2jFZdXX7tlsehrs/"></iframe>
+<iframe width="100%" height="1000px" src="https://embed.plnkr.co/FCTlq2jFZdXX7tlsehrs/?show=preview&sidebar=none&deferRun"></iframe>
