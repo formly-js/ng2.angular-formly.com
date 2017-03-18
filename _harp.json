@@ -2,7 +2,7 @@
  "globals": {
    "name"  : "Formly",
    "global_cta" : {
-     "href" : "https://github.com/formly-js/ng2-formly",
+     "href" : "https://github.com/formly-js/ng-formly",
      "text" : "Preview on GitHub"
    }
  }
