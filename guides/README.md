@@ -1,3 +1,11 @@
+#### Development setup
+
+Install [harp](http://harpjs.com/):
+
+`npm install -g harp`
+
+Run `npm install` to have the app watch for changes. New documentation will automagically appear when you complete the following steps.
+
 #### How to add more docs
 1. Name your file using the following pattern: `#-name-of-doc.md`
 2. Place `#-name-of-doc.md` in `guides/docs`
